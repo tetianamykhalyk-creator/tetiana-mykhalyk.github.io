@@ -1,0 +1,148 @@
+:root {
+    --txt-color-01: #ED3B0F;      /*primary txt color*/
+    --txt-color-02: #0A0A0A;      /*secondary txt color*/
+    --bg-primary-color: #F5F5F5;  /*background color*/
+    --mob-padding: 20px;            /*відступи до контенту на смартфонах*/
+    --ipad-padding: 50px;           /*відступи до контенту на ipad*/
+    --max-width: 1440px;            /*обмеження ширини секцій*/
+    
+    --grid-gutter: 20px;            /* Відстань між колонками */
+    --grid-columns: 14;             /* Кількість колонок */
+    --line-color: #EFDED9;          /* Колір ліній сітки */
+    --line-thickness: 1px;
+
+}
+
+h1 {
+    font-family: "Radio Canada Big", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 279px;               /*size primary txt*/
+    font-style: normal;
+    color: var(--txt-color-01);
+}
+
+h2 {
+    font-family: "Radio Canada Big", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 126px;               /*size primary txt*/
+    font-style: normal;
+    color: var(--txt-color-01);
+}
+
+h3 {
+    font-family: "Radio Canada Big", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 125px;               /*size primary txt*/
+    font-style: normal;
+    color: var(--txt-color-01);
+}
+
+h4 {
+    font-family: "Radio Canada Big", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 64px;               /*size primary txt*/
+    font-style: normal;
+    color: var(--txt-color-01);
+}
+
+html, body {
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-size: 26px;
+    line-height: 1.4;              /*міжрядковий інтервал*/ 
+    font-weight: 400;
+    font-style: normal;
+    color: var(--txt-color-01);
+}
+
+.text-small {
+    font-size: 16px;
+}
+
+.text-primary {
+    color: var(--txt-color-01);
+}
+
+.text-secondary {
+    color: var(--txt-color-02);
+}
+
+h1 {
+ font-size: 17.4rem;
+}
+
+h2 {
+ font-size: 4.83rem;
+}
+
+h3 {
+ font-size: 7.81rem;
+}
+
+h4 {
+ font-size: 4rem;
+}
+
+html, body {
+ font-size: 1.63rem;
+}
+
+
+header > .inside, 
+footer > .inside,
+section > .inside {
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+    /* padding-left: var(--ipad-padding); */
+    /* padding-right: var(--ipad-padding); */
+}
+
+@media (max-width:640px) {
+    
+    header > .inside, 
+    footer > .inside,
+    section > .inside {
+       padding-left: var(--mob-padding);
+       padding-right: var(--mob-padding);
+    }
+}
+
+body {
+  margin: 0;
+  height: 500vh;
+  background-color: var(--bg-primary-color);
+  /* Розрахунок однієї колонки і кроку з відступом */
+  --column-width: calc(
+    (var(--max-width) - (var(--grid-columns) - 1) * var(--grid-gutter))
+      / var(--grid-columns)
+  );
+  --grid-step: calc(var(--column-width) + var(--grid-gutter));
+  /* 
+    Малюємо дві лінії в межах кожного grid step:
+    - одна на початку колонки
+    - друга — перед початком наступної колонки, на відстані gutter
+  */
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      var(--line-color) 0,
+      var(--line-color) var(--line-thickness),
+      transparent var(--line-thickness),
+      transparent calc(var(--column-width)),
+      var(--line-color) calc(var(--column-width)),
+      var(--line-color) calc(var(--column-width) + var(--line-thickness)),
+      transparent calc(var(--column-width) + var(--line-thickness)),
+      transparent var(--grid-step)
+    );
+  background-repeat: repeat-x;
+  background-position: center center;
+  background-size: var(--grid-step) 100%;
+}
+
+
+
