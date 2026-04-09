@@ -34,20 +34,19 @@
 .hero {
   position: relative;
   padding-top: 236px;
-  padding-bottom: 274px;
+  padding-bottom: 0px;
+  display: flex;
+  flex-direction: column;
 }
 
 /* ----------- ПРАВА ІНФОЗОНА ----------- */
 .hero-info {
-  position: absolute;
-  top: 57%;
-  right: calc(var(--grid-step)); /* притискаємо до правої сітки */
-  
-  /* рядковий flex між двома блоками */
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 127px; /* відстань між лівим і правим блоком */
+  position: relative;
+  margin-top: -67px;    /* Відступ від великого імені до DESIGN/BRANDING */
+    align-self: flex-end; /* Притискаємо до правого краю */
+    margin-right: var(--grid-step);
+    display: flex;
+    gap: 127px;
 }
 
 /* Лівий блок (DESIGN / BRANDING) */
@@ -96,10 +95,12 @@
   font-size: 26px;
   color: var(--txt-color-01);
   text-transform: uppercase;
-  position: absolute;
+  position: relative;
   bottom: 0px; /* розмісти як у Figma */
   left: calc(var(--grid-step) + 0px); /* по сітці */
   cursor: default;
+  margin-top: 236px;   /* Регулюйте цей відступ, щоб SCROLL був там, де потрібно */
+  margin-left: calc(var(--grid-step) - 105px);
 }
 .scroll-hint img {
   width: 26px;  /* підбери під макет */

@@ -1,0 +1,198 @@
+
+
+
+#s2 .inside {
+    display: flex; /* Робимо контейнер гнучким */
+    align-items: center; /* Це вирівняє заголовок по центру висоти карток */
+    justify-content: flex-start; /* Притискаємо все до лівого краю */
+    padding-top: 177px; /* Твій відступ зверху */
+}
+/* Контейнер секції */
+.work-section {
+    padding-top: 257px; /* Відстань від SCROLL до карток */
+    display: flex;
+    align-items: flex-start;
+    gap: 93px; /* Відстань від карток до заголовка LOGO DESIGN */
+}
+
+/* Контейнер для карток */
+.cards-container {
+    display: flex;
+    gap: 20px; /* Відстань між картками */
+    margin-left: 104px; /* Відстань від лівого краю до першої картки */
+}
+
+/* Стиль самої картки */
+.card {
+    width: 293px; /* Ширина картки W */
+}
+
+.card-image {
+    width: 293px;
+    height: 199px; /* Висота картки H */
+    border: 1px solid var(--txt-color-02); /* Рамка картки */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+
+    /* --- КЛЮЧОВИЙ РЯДОК ДЛЯ АНІМАЦІЇ --- */
+    /* Все, що виходить за межі рамки, буде приховано */
+    overflow: hidden;
+
+}
+
+.card-image img {
+    max-width: 100%;
+    height: auto;
+
+    /* Додаємо плавність для ефекту збільшення */
+    /* duration: 0.4s - швидкість, ease - тип руху */
+    transition: transform 0.5s ease; 
+    
+    /* Про всяк випадок фіксуємо початковий масштаб */
+    transform: scale(1);
+}
+
+/* Коли ми наводимо на .card, зображення всередині збільшується */
+.card:hover .card-image img {
+    /* Збільшуємо масштаб зображення на 1.1 (це +10%) */
+    /* Можеш підібрати своє значення, наприклад 1.05 або 1.15 */
+    transform: scale(1.15); 
+}
+
+/* Інфо під карткою */
+.card-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px; /* Відстань від картки до INFO */
+    padding: 0 5px;
+    /* Використовуємо ваш новий стиль 16px Roboto Mono */
+    font-size: 16px; 
+    color: var(--txt-color-02);
+    font-family: "Roboto Mono", monospace;
+    text-transform: uppercase;
+}
+
+/* Заголовок LOGO DESIGN */
+.section-title .title-h4 {
+    font-family: "Radio Canada Big", sans-serif;
+    font-size: 64px; /* Розмір H4 за макетом */
+    font-weight: 400;
+    line-height: 1;
+    color: var(--txt-color-01);
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.section-title {
+    margin-left: 93px; /* Точна відстань від картки S-LINE до тексту */
+}
+
+/* Контейнер для INFO та прихованого списку */
+.info-trigger {
+    position: relative;
+    cursor: pointer;
+}
+
+/* Початковий стан списку: прихований */
+.info-details {
+    /* Додаємо абсолютне позиціювання */
+    position: absolute;
+    top: 100%; /* Список почнеться одразу під словом INFO */
+    left: 0;
+    z-index: 10; /* Щоб список був над лініями сітки */
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0 0; /* Відступ від слова INFO */
+    max-height: 0;      /* Висота 0 для приховування */
+    overflow: hidden;   /* Ховаємо контент, що не вміщається */
+    opacity: 0;         /* Робимо повністю прозорим */
+    transition: max-height 0.4s ease, opacity 0.3s ease; /* Плавність */
+}
+
+/* Елементи списку */
+.info-details li {
+    font-family: "Roboto Mono", monospace;
+    font-size: 16px;
+    line-height: 1.4;
+    white-space: nowrap; /* Щоб текст не переносився */
+    display: flex;
+    align-items: center; /* Центруємо іконку та текст по вертикалі */
+    gap: 12px;           /* Відстань від іконки до тексту */
+    margin-bottom: 8px;  /* Відстань між рядками списку */
+    text-transform: uppercase;
+
+    /* Початковий стан для анімації */
+    opacity: 0;
+    transform: translateY(10px); /* Пункти трохи зміщені вниз */
+    transition: opacity 0.4s ease, transform 0.4s ease; /* Плавність появи та руху */
+}
+
+
+/* Перший пункт з'являється майже одразу */
+.info-details li:nth-child(1) { transition-delay: 0.1s; }
+
+/* Другий пункт з невеликою паузою */
+.info-details li:nth-child(2) { transition-delay: 0.2s; }
+
+/* Третій пункт останній */
+.info-details li:nth-child(3) { transition-delay: 0.3s; }
+
+
+
+/* Коли ми наводимо на INFO, список розгортається */
+.info-trigger:hover .info-details {
+    max-height: 200px; /* Даємо достатньо місця для всього списку */
+    opacity: 1;
+}
+
+/* При наведенні кожен li повертається на своє місце і стає видимим */
+.info-trigger:hover .info-details li {
+    opacity: 1;
+    transform: translateY(0); /* Повертаємо в нормальну позицію */
+}
+
+
+
+/* Псевдоелемент, який буде вашою іконкою */
+.info-details li::before {
+    content: ""; /* Обов'язково порожній контент */
+    display: block;
+    width: 20px;  /* Ширина вашої іконки */
+    height: 20px; /* Висота вашої іконки */
+    
+    /* --- ШЛЯХ ДО ВАШОЇ ІКОНКИ --- */
+    
+    
+    background-size: contain; /* Щоб іконка вписувалася в розмір */
+    background-repeat: no-repeat;
+    background-position: center;
+
+    /* --- МАГІЯ ПЕРЕФАРБУВАННЯ (CSS Mask) --- */
+    
+    /* 1. Задаємо форму нашої іконки як маску */
+    /* Використовуємо стару оранжеву SVG */
+    -webkit-mask-image: url('../img/arrow-up-right.svg'); /* Для Safari/Chrome */
+            mask-image: url('../img/arrow-up-right.svg'); /* Стандарт */
+    
+    /* 2. Налаштування маски (аналогічно background) */
+    -webkit-mask-size: contain;
+            mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+            mask-position: center;
+            
+    /* 3. ЗАДАЄМО КОЛІР ІКОНКИ */
+    /* Тепер іконка буде чорною! */
+    background-color: #0A0A0A; /* Ваш колір --txt-color-02 */
+}
+
+/* --- МАГІЯ НАВЕДЕННЯ --- */
+
+/* Коли ми наводимо на .info-trigger, список розгортається */
+.info-trigger:hover .info-details {
+    max-height: 150px; /* Достатня висота, щоб вмістити всі пункти */
+    opacity: 1;        /* Робимо видимим */
+}

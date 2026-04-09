@@ -76,7 +76,8 @@ h1 {
 }
 
 h2 {
- font-size: 4.83rem;
+ /* font-size: 4.83rem; */
+ font-size: 7vw;
 }
 
 h3 {
@@ -114,34 +115,8 @@ section > .inside {
 
 body {
   margin: 0;
-  height: 500vh;
-  background-color: var(--bg-primary-color);
-  /* Розрахунок однієї колонки і кроку з відступом */
-  --column-width: calc(
-    (var(--max-width) - (var(--grid-columns) - 1) * var(--grid-gutter))
-      / var(--grid-columns)
-  );
-  --grid-step: calc(var(--column-width) + var(--grid-gutter));
-  /* 
-    Малюємо дві лінії в межах кожного grid step:
-    - одна на початку колонки
-    - друга — перед початком наступної колонки, на відстані gutter
-  */
-  background-image:
-    repeating-linear-gradient(
-      to right,
-      var(--line-color) 0,
-      var(--line-color) var(--line-thickness),
-      transparent var(--line-thickness),
-      transparent calc(var(--column-width)),
-      var(--line-color) calc(var(--column-width)),
-      var(--line-color) calc(var(--column-width) + var(--line-thickness)),
-      transparent calc(var(--column-width) + var(--line-thickness)),
-      transparent var(--grid-step)
-    );
-  background-repeat: repeat-x;
-  background-position: center center;
-  background-size: var(--grid-step) 100%;
+  min-height: 100vh;
+  /* background-color: var(--bg-primary-color); */
 }
 
 
