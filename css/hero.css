@@ -1,24 +1,80 @@
-#s1 {
-  max-width: var(--max-width);
-  margin-left: auto;
-  margin-right: auto;
-}
 
 #s1 .inside {
   position: relative;
   max-width: var(--max-width);
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
 }
 
-/* великий текст */
+/* HERO‑блок секції */
+.hero {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  width: 100%;
+  padding-bottom: 5vh;
+}
+
+.hero .title {
+  width: calc(50% - 7px);
+}
+
 #s1 h1 {
-  font-family: "Radio Canada Big", sans-serif;
+  font-size: 6.5rem;
+  line-height: 1;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: .01em;
+}
+
+.title .surname {
+  text-align: right;
+}
+
+.hero .brand {
+  padding-left: 16px;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 12px;
+}
+
+.hero .brand h2 {
+  min-width: 200px;
+  padding-right: 80px;
+}
+
+.hero .year {
+  padding-left: 14px;
+}
+
+.hero-year {
+  font-size: 1rem;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: .01em;
+}
+
+#s1 h2 {
+  max-width: 100px;
+  font-size: 1rem;
+  line-height: 1.1;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: .001em;
+}
+
+
+
+/* великий текст */
+#s1 h3 {
   font-weight: 700;
   font-size: 17.4rem;
   line-height: 0.85;
   color: var(--txt-color-01);
   margin: 0;
-  padding-left: calc(var(--grid-step) + 40px);
 }
 
 /* рядки імені */
@@ -30,200 +86,10 @@
   line-height: 1.1; /* менше числа — менший проміжок */
 }
 
-/* HERO‑блок секції */
-.hero {
-  position: relative;
-  padding-top: 236px;
-  padding-bottom: 0px;
-  display: flex;
-  flex-direction: column;
-}
-
-/* ----------- ПРАВА ІНФОЗОНА ----------- */
-.hero-info {
-  position: relative;
-  margin-top: -67px;    /* Відступ від великого імені до DESIGN/BRANDING */
-    align-self: flex-end; /* Притискаємо до правого краю */
-    margin-right: var(--grid-step);
-    display: flex;
-    gap: 127px;
-}
-
-/* Лівий блок (DESIGN / BRANDING) */
-.hero-info-left {
-  display: flex;
-  flex-direction: column;
-  gap: 5px; /* між DESIGN і BRANDING */
-}
-.hero-info-right { 
-  margin-top:27px;
-  transform: translateX(5px); /* посуне праворуч на 20px */
-}
-
-
-/* Текст у обох блоках */
-.hero-info p {
-  font-family: "Roboto Mono", monospace;
-  font-size: 16px;
-  color: var(--txt-color-01);
-  text-transform: uppercase;
-  margin: 0;
-}
-
-.name-line {
-  display: block;
-}
-
-.name-top {
-  padding-left: calc(var(--grid-step) + 144px);
-}
-/* другий рядок TETIANA */
-.name-bottom {
-  padding-left: calc(var(--grid-step)); 
-}
-
-.hero-info {
-  right: calc(var(--grid-step) + 155px); /* посуне трохи вліво */
-}
-
 .scroll-hint {
-  display: inline-flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 8px; /* відстань між текстом і іконкою */
-  font-family: "Roboto Mono", monospace;
-  font-size: 26px;
-  color: var(--txt-color-01);
-  text-transform: uppercase;
-  position: relative;
-  bottom: 0px; /* розмісти як у Figma */
-  left: calc(var(--grid-step) + 0px); /* по сітці */
-  cursor: default;
-  margin-top: 236px;   /* Регулюйте цей відступ, щоб SCROLL був там, де потрібно */
-  margin-left: calc(var(--grid-step) - 105px);
+  padding-left: var(--ipad-padding);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin-bottom: 3rem;
 }
-.scroll-hint img {
-  width: 26px;  /* підбери під макет */
-  height: auto;
-}
-
-
-
-
-/* Загальні налаштування посилання */
-.nav-link {
-    text-decoration: none;
-    color: var(--txt-color-01);
-    display: inline-flex;
-    align-items: center;
-    gap: 8px; /* відстань між текстом та іконкою */
-}
-
-/* Контейнер тексту для лінії */
-.link-text {
-    position: relative;
-    display: inline-block;
-}
-
-/* Сама лінія під текстом */
-.link-text::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -2px; /* відстань лінії від тексту */
-    width: 100%;
-    height: 1px;
-    background-color: var(--txt-color-01);
-    
-    /* Початковий стан: прихована (стиснута зліва) */
-    transform: scaleX(0);
-    transform-origin: bottom left;
-    transition: transform 0.3s ease-out;
-}
-
-/* Іконка (прихована за замовчуванням) */
-.nav-link .icon {
-    display: inline-flex;
-    opacity: 0;
-    visibility: hidden;
-    transform: translate(-8px, 4px); /* ефект "випливання" */
-    transition: all 0.3s ease;
-}
-
-.nav-link .icon img {
-    width: 21px; /* підберіть свій розмір */
-    height: auto;
-}
-
-/* --- ЕФЕКТИ ПРИ НАВЕДЕННІ --- */
-
-/* Активуємо лінію під текстом при наведенні на все посилання */
-.nav-link:hover .link-text::after {
-    transform: scaleX(1);
-}
-
-/* Показуємо іконку */
-.nav-link:hover .icon {
-    opacity: 1;
-    visibility: visible;
-    transform: translate(0, 0);
-}
-
-
-
-
-
-/* Базові стилі для всього блоку підказки */
-.scroll-hint {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  cursor: pointer; /* щоб показати, що на це можна натиснути */
-  /* ... ваші інші стилі позиціонування ... */
-}
-
-/* Стилі для самої іконки (без анімації за замовчуванням) */
-.scroll-icon {
-  display: block;
-  width: 24px; /* підберіть розмір */
-  height: auto;
-  /* Додайте легку затримку для плавного старту */
-  transition: transform 0.2s ease; 
-}
-
-/* --- МАГІЯ АНІМАЦІЇ --- */
-
-/* 1. Описуємо, ЯК саме буде рухатися іконка */
-@keyframes arrow-bounce {
-  /* Початковий стан: іконка на місці */
-  0% {
-    transform: translateY(0);
-  }
-  
-  /* Середина: іконка опускається нижче */
-  50% {
-    transform: translateY(10px); /* 10px - це глибина "стрибка" */
-  }
-  
-  /* Кінець: іконка повертається на місце */
-  100% {
-    transform: translateY(0);
-  }
-}
-
-/* 2. Запускаємо анімацію ТІЛЬКИ при наведенні (:hover) на весь блок */
-.scroll-hint:hover .scroll-icon {
-  /* Назва анімації, яку ми створили вище */
-  animation-name: arrow-bounce;
-  
-  /* Тривалість одного циклу (повільніше - плавно, швидше - жваво) */
-  animation-duration: 1s; 
-  
-  /* Тип руху: плавний вхід і вихід */
-  animation-timing-function: ease-in-out; 
-  
-  /* Кількість повторів: нескінченно, поки тримаємо мишку */
-  animation-iteration-count: infinite; 
-}
-
-

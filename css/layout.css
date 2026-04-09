@@ -4,8 +4,7 @@
     --bg-primary-color: #F5F5F5;  /*background color*/
     --mob-padding: 20px;            /*відступи до контенту на смартфонах*/
     --ipad-padding: 50px;           /*відступи до контенту на ipad*/
-    --max-width: 1440px;            /*обмеження ширини секцій*/
-    
+    --max-width: 1280px;            /*обмеження ширини секцій*/ 
     --grid-gutter: 20px;            /* Відстань між колонками */
     --grid-columns: 14;             /* Кількість колонок */
     --line-color: #EFDED9;          /* Колір ліній сітки */
@@ -52,7 +51,7 @@ h4 {
 html, body {
     font-family: "Roboto Mono", monospace;
     font-optical-sizing: auto;
-    font-size: 26px;
+    font-size: 16px;
     line-height: 1.4;              /*міжрядковий інтервал*/ 
     font-weight: 400;
     font-style: normal;
@@ -71,36 +70,14 @@ html, body {
     color: var(--txt-color-02);
 }
 
-h1 {
- font-size: 17.4rem;
-}
-
-h2 {
- /* font-size: 4.83rem; */
- font-size: 7vw;
-}
-
-h3 {
- font-size: 7.81rem;
-}
-
-h4 {
- font-size: 4rem;
-}
-
-html, body {
- font-size: 1.63rem;
-}
-
-
 header > .inside, 
 footer > .inside,
 section > .inside {
     max-width: var(--max-width);
     margin-left: auto;
     margin-right: auto;
-    /* padding-left: var(--ipad-padding); */
-    /* padding-right: var(--ipad-padding); */
+    padding-left: var(--ipad-padding);
+    padding-right: var(--ipad-padding);
 }
 
 @media (max-width:640px) {
