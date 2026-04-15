@@ -1,4 +1,4 @@
-header {
+/* header {
   position: fixed;
 }
 
@@ -15,13 +15,13 @@ header {
   font-size: 16px;
   text-decoration: none;
   color: #ED3B0F;
-  /* прив’язка до другої вертикальної лінії сітки */
+ 
   margin-left: calc(var(--grid-step));
 }
 
 .nav {
   display: flex;
-  /* прив’язка до 14‑ї вертикальної лінії */
+  
   margin-right: calc(var(--grid-step));
   margin-right: 216px;
 }
@@ -33,12 +33,422 @@ header {
 }
 
 .nav a:nth-child(2) {
-  margin-left: calc(var(--grid-gutter) + 46px); /* трохи підрегулюй при потребі */
+  margin-left: calc(var(--grid-gutter) + 46px);
 }
 
 .nav a:nth-child(3) {
   margin-left: calc(var(--grid-gutter) + 36px);
+} */
+
+
+
+
+
+
+/* header.css */
+
+/* nav {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; 
+}
+
+.navbar.inside {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 4vh; 
+    max-width: var(--max-width); 
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1rem;
+    text-decoration: none;
+    color: var(--txt-color-01); 
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    
+    margin-left: calc(var(--grid-step, 20px)); 
+}
+
+.navigation {
+    
+    margin-right: 12vw; 
+}
+
+.level_1 {
+    display: flex;
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+}
+
+.level_1 li {
+    
+    margin-left: 46px; 
+}
+
+.level_1 li:first-child {
+    margin-left: 0; 
+}
+
+
+.nav-link {
+    font-size: 16px;
+    text-decoration: none;
+    color: var(--txt-color-01); 
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: opacity 0.3s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.7; 
+}
+
+
+.nav-link .icon img {
+    width: 24px; 
+    height: auto;
+    display: block;
+}
+
+
+.nav-icon {
+    display: none;
+} */
+
+
+
+
+nav {
+    /* background: var(--bg-nav-1); */
+    background: transparent; /* Колір фону навігаційної панелі 1 */
+    background-repeat: no-repeat;
+    background-position: bottom;
+    position: relative;
+    width: 100%;
+    z-index: 95;
+}
+
+nav.topfixed {
+    background: var(--bg-nav-1);
+    position: fixed;
+}
+
+/* nav::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform: translateY(-100%);
+    transition: transform .1s ease;
+} */
+
+nav.topfixed::before {
+    transform: none;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;     /* Схема вирівнювання лого та меню (desktop) по основній осі (main axis) */
+    align-items: center;                /* Схема вирівнювання лого та меню (desktop) по додатковій осі (cross axis) */
+    margin-left: auto;                  /* Центрування блоку всередині nav по-горизонталі */
+    margin-right: auto;                 /* Центрування блоку всередині nav по-горизонталі */
+    max-width: var(--max-width);        /* Ширина .nav-inside не більше 1280px */
+    padding: var(--mob-padding);        /* Внутрішні відступи */
+    position: relative;
+    transition: all .3s ease-in-out;
+}
+
+.topfixed .navbar {
+    justify-content: space-between;     /* Схема вирівнювання лого та меню (desktop) по основній осі (main axis) після прокрутки */
+    /* border-bottom-left-radius: var(--bord-radius); */
+    /* border-bottom-right-radius: var(--bord-radius); */
+    /* background-image: url(../img/image-in-top.jpg); */
+    /* background-color: rgba(10,10,10,.5); */
+    /* background-blend-mode: multiply; */
+    /* background-size: cover; */
+    padding-top: 12px;      /* Внутрішні відступи після прокрутки */
+    padding-bottom: 12px;   /* Внутрішні відступи після прокрутки */
+}
+
+.logo {
+    display: flex;
+    width: var(--logo-width);
+    line-height: .7;
+    transform: scale(1);
+    transform-origin: left center;
+    align-items: center;    /* Вирівнювання по додатковій осі */
+    transition: all .3s ease-in-out;
+    text-decoration: none;
+    margin-left: 2vw;
+}
+
+
+.logo:hover {
+    text-decoration: none;
+}
+
+.topfixed .logo {
+    transform: scale(.8);
+    opacity: 1;
+    display: flex;
+}
+
+.logo img {
+    margin-right: 15px;
+}
+
+.logo span {
+    color: var(--txt-color-01);
+    font-family: "Radio Canada Big", sans-serif; /* Назва шрифту, який ви підключили */
+    font-size: 1rem;
+    font-weight: 400; /* Жирність тексту */
+    text-transform: uppercase;
+    
+    line-height: 1.4;
+    letter-spacing: .035em;
+    font-weight: 400;
+    text-transform: uppercase;
+    max-width: none;       /* Прибираємо обмеження 80px */
+    white-space: nowrap;   /* Гарантуємо, що текст завжди буде в один рядок */
+}
+
+nav .navbar {
+    overflow: visible;
+}
+
+.nav-icon {
+    display: none;
+    z-index: 99;
+}
+
+.navigation a {
+    display: inline-flex; /* Змінено з block на inline-flex */
+    align-items: center;  /* Центруємо текст і стрілочку по вертикалі */
+    color: var(--txt-color-01);  /* Основний колір меню */
+    font-family: "Radio Canada Big", sans-serif; /* Назва шрифту, який ви підключили */
+    font-size: 1rem;
+    
+    font-weight: 400;           /* Накреслення тексту меню */
+    letter-spacing: .025em;
+    padding: 8px 0 18px;
+    margin-left: 32px;
+    text-decoration: none;
+    position: relative;
+    transition: all .3s ease;
+}
+
+.navigation a:hover {
+    color: var(--nav-color-2); /* Основний колір меню (hover) */
+}
+
+.topfixed .navigation a {
+    color: var(--nav-color-3); /* Колір меню після прокрутки */
+}
+
+.topfixed .navigation a:hover {
+    color: var(--nav-color-4); /* Колір меню (hover) після прокрутки */
+}
+
+.navigation ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navigation li {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+a:hover, a:focus, a:active {
+    text-decoration: none;
+}
+
+.overlay {
+    background-color: #333;
+    opacity:.3;
+    position: absolute;
+    left:0; top:0;
+    width:100dvw;
+    height:100dvh;
+}
+
+@media screen and (max-width: 767px) {
+
+    .navbar {
+        justify-content: space-between;
+    }
+
+    .navigation ul {
+        background-color: var(--bg-primary-color);
+        display: flex;
+        flex-direction: column;
+        visibility: visible;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 70vw; /* 70% from Viewport width */
+        height: 100dvh; /* 100% Dynamic viewport height */
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding-top: 80px;
+        transform: translateY(-100%);
+        transition: transform .35s ease;
+    }
+
+    .open .navigation ul {
+        transform: translateY(0);
+    }
+
+    .open ul li {
+        /* display: block; */
+        width: 100%;
+        border-bottom: 1px solid #444;
+        margin-left: 0;
+    }
+
+    .open ul a {
+        color: var(--nav-color-3);  /* Основний колір мобільного меню */
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .open ul a:hover {
+        color: var(--nav-color-4);  /* Основний колір мобільного меню (hover) */
+    }
+}
+
+.navigation {
+    /* Збільште це значення, щоб блок посунувся лівіше */
+    margin-right: 13vw; 
+    
+    /* Також переконайтеся, що justify-content не перебиває цей відступ */
 }
 
 
 
+
+
+/* --- АНІМАЦІЯ ПІДКРЕСЛЕННЯ ТЕКСТУ --- */
+.navigation .link-text {
+    position: relative;
+    display: inline-block;
+}
+
+.navigation .link-text::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; /* Лінія чітко під текстом */
+    left: 0;
+    width: 100%; /* Довжина лінії дорівнює довжині слова */
+    height: 1px;
+    background-color: var(--txt-color-01);
+    
+    /* Анімація */
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+/* При наведенні на посилання — анімуємо лінію всередині нього */
+.navigation a:hover .link-text::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+
+
+
+
+
+
+
+
+
+/* ============================================================
+   ФІНАЛЬНИЙ КОД АНІМАЦІЇ НАВІГАЦІЇ (ЛОГО ТА МЕНЮ)
+   ============================================================ */
+
+/* 1. Налаштування контейнера посилання */
+.nav-link {
+    display: inline-flex; /* Щоб ширина була по тексту, а не на весь екран */
+    align-items: center;
+    position: relative;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    /* margin-left та padding залишаються твоїми оригінальними */
+}
+
+/* 2. Обгортка тексту всередині посилання (для лінії) */
+.link-text {
+    position: relative;
+    display: inline-block;
+}
+
+/* 3. Анімація лінії під текстом (всюди: і в Лого, і в Меню) */
+.link-text::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; /* Відступ лінії від букв */
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--txt-color-01);
+    
+    /* Ефект анімації: з'являється зліва, зникає вправо */
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+/* Поява лінії при наведенні */
+.nav-link:hover .link-text::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* 4. Анімація стрілочки (іконки) */
+.nav-link .icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 6px; /* Маленький стабільний відступ, щоб не відлітала */
+    opacity: 0;       /* Прихована за замовчуванням */
+    
+    /* Короткий виліт: всього на 2-3 пікселі */
+    transform: translate(-3px, 3px); 
+    
+    transition: transform 0.4s cubic-bezier(0.65, 0.05, 0.36, 1), 
+                opacity 0.3s ease;
+}
+
+/* Поява стрілочки при наведенні */
+.nav-link:hover .icon {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* 5. Коригування для Логотипу */
+.logo {
+    margin-left: 2vw; /* Твій відступ для лого */
+}
+
+/* Якщо у логотипу інша висота рядка, підкоригуємо лінію */
+.logo .link-text::after {
+    bottom: -4px; /* Трохи нижче, бо шрифт лого може бути більшим */
+}
+
+/* Прибираємо старі стилі, які могли заважати */
+.logo span {
+    max-width: none !important;
+    white-space: nowrap !important;
+}

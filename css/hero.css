@@ -19,7 +19,7 @@
 }
 
 .hero .title {
-  width: calc(50% - 7px);
+  width: calc(50% + 97px);
 }
 
 #s1 h1 {
@@ -35,6 +35,7 @@
 }
 
 .hero .brand {
+  margin-left: 0;
   padding-left: 16px;
   display: flex;
   align-items: flex-end;
@@ -86,10 +87,49 @@
   line-height: 1.1; /* менше числа — менший проміжок */
 }
 
+
+
 .scroll-hint {
-  padding-left: var(--ipad-padding);
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  margin-bottom: 3rem;
+    font-size: 1.45rem;
+    padding-left: var(--ipad-padding);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin-bottom: 3rem;
+    
+    /* Робимо текст і стрілочку в один рядок */
+    display: flex;
+    flex-direction: row; /* Текст і стрілочка в ряд */
+    align-items: center;
+    gap: 10px; /* Відступ між текстом і стрілочкою */
+    cursor: pointer;
+}
+
+.scroll-text {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--txt-color-01);
+}
+
+.scroll-icon {
+    display: inline-flex;
+    color: var(--txt-color-01);
+    font-size: 1.2rem; /* Розмір стрілочки */
+    transition: transform 0.3s ease;
+}
+
+/* АНІМАЦІЯ ПРИ НАВЕДЕННІ */
+/* Наводимо на весь блок — рухається тільки стрілочка */
+.scroll-hint:hover .scroll-icon {
+    animation: arrowScrollBounce 1.5s infinite ease-in-out;
+}
+
+/* Ключові кадри: стрілочка стрибає ВНИЗ і повертається */
+@keyframes arrowScrollBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(6px); /* Глибина стрибка */
+    }
 }
