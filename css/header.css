@@ -137,7 +137,7 @@ nav {
 }
 
 nav.topfixed {
-    background: var(--bg-nav-1);
+    background: var(--bg-primary-color);
     position: fixed;
 }
 
@@ -247,15 +247,15 @@ nav .navbar {
 }
 
 .navigation a:hover {
-    color: var(--nav-color-2); /* Основний колір меню (hover) */
+    color: var(--bg-primary-color); /* Основний колір меню (hover) */
 }
 
 .topfixed .navigation a {
-    color: var(--nav-color-3); /* Колір меню після прокрутки */
+    color: var(--bg-primary-color); /* Колір меню після прокрутки */
 }
 
 .topfixed .navigation a:hover {
-    color: var(--nav-color-4); /* Колір меню (hover) після прокрутки */
+    color: var(--bg-primary-color); /* Колір меню (hover) після прокрутки */
 }
 
 .navigation ul {
@@ -317,52 +317,19 @@ a:hover, a:focus, a:active {
     }
 
     .open ul a {
-        color: var(--nav-color-3);  /* Основний колір мобільного меню */
+        color: var(#F5F5F5);  /* Основний колір мобільного меню */
         padding-top: 12px;
         padding-bottom: 12px;
     }
 
     .open ul a:hover {
-        color: var(--nav-color-4);  /* Основний колір мобільного меню (hover) */
+        color: var(#F5F5F5);  /* Основний колір мобільного меню (hover) */
     }
 }
 
 .navigation {
     /* Збільште це значення, щоб блок посунувся лівіше */
     margin-right: 13vw; 
-    
-    /* Також переконайтеся, що justify-content не перебиває цей відступ */
-}
-
-
-
-
-
-/* --- АНІМАЦІЯ ПІДКРЕСЛЕННЯ ТЕКСТУ --- */
-.navigation .link-text {
-    position: relative;
-    display: inline-block;
-}
-
-.navigation .link-text::after {
-    content: '';
-    position: absolute;
-    bottom: -2px; /* Лінія чітко під текстом */
-    left: 0;
-    width: 100%; /* Довжина лінії дорівнює довжині слова */
-    height: 1px;
-    background-color: var(--txt-color-01);
-    
-    /* Анімація */
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.4s cubic-bezier(0.65, 0.05, 0.36, 1);
-}
-
-/* При наведенні на посилання — анімуємо лінію всередині нього */
-.navigation a:hover .link-text::after {
-    transform: scaleX(1);
-    transform-origin: left;
 }
 
 
