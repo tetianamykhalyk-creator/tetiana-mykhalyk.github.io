@@ -58,7 +58,8 @@ document.addEventListener("DOMContentLoaded", function(){
         let navbox = document.querySelector("nav");
         let y = window.scrollY;
         
-        if (y < dy && y > 60) {
+        // if (y < dy && y > 60) {
+        if (y > 60) {    
             if (!navbox.classList.contains("topfixed"))
             navbox.classList.add("topfixed");
         } else {

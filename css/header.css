@@ -131,7 +131,7 @@ nav {
     background: transparent; /* Колір фону навігаційної панелі 1 */
     background-repeat: no-repeat;
     background-position: bottom;
-    position: relative;
+    position: fixed;
     width: 100%;
     z-index: 95;
 }
@@ -188,7 +188,6 @@ nav.topfixed::before {
     align-items: center;    /* Вирівнювання по додатковій осі */
     transition: all .3s ease-in-out;
     text-decoration: none;
-    margin-left: 2vw;
 }
 
 
@@ -231,12 +230,9 @@ nav .navbar {
 }
 
 .navigation a {
-    display: inline-flex; /* Змінено з block на inline-flex */
-    align-items: center;  /* Центруємо текст і стрілочку по вертикалі */
     color: var(--txt-color-01);  /* Основний колір меню */
     font-family: "Radio Canada Big", sans-serif; /* Назва шрифту, який ви підключили */
     font-size: 1rem;
-    
     font-weight: 400;           /* Накреслення тексту меню */
     letter-spacing: .025em;
     padding: 8px 0 18px;
@@ -247,7 +243,7 @@ nav .navbar {
 }
 
 .navigation a:hover {
-    color: var(--bg-primary-color); /* Основний колір меню (hover) */
+    color: var(--txt-color-01); /* Основний колір меню (hover) */
 }
 
 .topfixed .navigation a {
@@ -267,6 +263,7 @@ nav .navbar {
 .navigation li {
     display: inline-block;
     vertical-align: middle;
+    min-width: 100px;
 }
 
 a:hover, a:focus, a:active {
@@ -327,20 +324,6 @@ a:hover, a:focus, a:active {
     }
 }
 
-.navigation {
-    /* Збільште це значення, щоб блок посунувся лівіше */
-    margin-right: 13vw; 
-}
-
-
-
-
-
-
-
-
-
-
 /* ============================================================
    ФІНАЛЬНИЙ КОД АНІМАЦІЇ НАВІГАЦІЇ (ЛОГО ТА МЕНЮ)
    ============================================================ */
@@ -385,6 +368,9 @@ a:hover, a:focus, a:active {
 
 /* 4. Анімація стрілочки (іконки) */
 .nav-link .icon {
+    position: absolute;
+    right: 0;
+    margin-right: -24px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -402,11 +388,6 @@ a:hover, a:focus, a:active {
 .nav-link:hover .icon {
     opacity: 1;
     transform: translate(0, 0);
-}
-
-/* 5. Коригування для Логотипу */
-.logo {
-    margin-left: 2vw; /* Твій відступ для лого */
 }
 
 /* Якщо у логотипу інша висота рядка, підкоригуємо лінію */

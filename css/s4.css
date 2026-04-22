@@ -1,0 +1,95 @@
+/* 1. Секція */
+
+
+/* 2. Контейнер для всього контенту всередині */
+#s4 .inside {
+    position: relative;
+    width: 100%;
+    max-width: 1286px; /* Обмежуємо ширину, щоб не розліталося на великих моніторах */
+    margin: 0 auto;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+/* 3. Текст "MUSIC COVER DESIGN" — ЗАДНІЙ ПЛАН */
+.covers-title-wrapper {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-160%);
+    z-index: 1; /* Обов'язково 1 */
+    text-align: right;
+    pointer-events: none;
+}
+
+.covers-huge-title {
+    font-size: 126px; /* Як на макеті */
+    line-height: 0.85;
+    text-transform: uppercase;
+    color: #ff3d00; /* Твій яскравий колір */
+    font-weight: 400;
+}
+
+.covers-huge-title span {
+    display: block;
+}
+
+/* 4. Слайдер — ПЕРЕДНІЙ ПЛАН */
+.covers-slider-container {
+    position: relative;
+    z-index: 2; /* Обов'язково 2, щоб перекривати текст */
+    min-width: 100vh; /* Фіксуємо ширину під розмір вінілу */
+}
+
+.covers-slides-wrapper {
+    position: relative;
+    width: 100%;
+    height: 560px;
+}
+
+.covers-slide {
+    display: none;
+    width: 100%;
+}
+
+.covers-slide.active {
+    display: block;
+}
+
+.covers-slide-image img {
+    height: 560px; /* Висота вінілу */
+    width: auto;
+    display: block;
+}
+
+/* 5. Навігація — ПРИВ'ЯЗКА ДО ПРАВОГО КРАЮ СЛАЙДЕРА */
+.covers-navigation {
+    position: absolute;
+    bottom: 0px;
+    right: 0.1vw; /* Вирівнювання по краю тексту */
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    z-index: 100; /* Щоб кнопки завжди були зверху слайдів */
+}
+
+.covers-counter {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 26px;
+    color: var(--txt-color-01);
+}
+
+.covers-nav-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    transition: opacity 0.3s;
+}
+
+.covers-nav-btn img {
+    width: 46px;
+    height: auto;
+}

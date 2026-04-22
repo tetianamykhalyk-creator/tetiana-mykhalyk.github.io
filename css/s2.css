@@ -5,7 +5,7 @@
     display: flex; /* Робимо контейнер гнучким */
     align-items: center; /* Це вирівняє заголовок по центру висоти карток */
     justify-content: flex-start; /* Притискаємо все до лівого краю */
-    padding-top: 177px; /* Твій відступ зверху */
+    min-height: 100vh;
 }
 /* Контейнер секції */
 .work-section {
@@ -18,17 +18,17 @@
 /* Контейнер для карток */
 .cards-container {
     display: flex;
-    gap: 20px; /* Відстань між картками */
-    margin-left: 104px; /* Відстань від лівого краю до першої картки */
+    gap: 14px; /* Відстань між картками */
+   
 }
 
 /* Стиль самої картки */
 .card {
-    width: 293px; /* Ширина картки W */
+    width: 286px; /* Ширина картки W */
 }
 
 .card-image {
-    width: 293px;
+    width: 286px;
     height: 199px; /* Висота картки H */
     border: 1px solid var(--txt-color-02); /* Рамка картки */
     display: flex;
@@ -86,7 +86,7 @@
 }
 
 .section-title {
-    margin-left: 93px; /* Точна відстань від картки S-LINE до тексту */
+    margin-left: 78px; /* Точна відстань від картки S-LINE до тексту */
 }
 
 /* Контейнер для INFO та прихованого списку */

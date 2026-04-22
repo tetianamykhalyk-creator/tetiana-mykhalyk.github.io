@@ -4,11 +4,14 @@
     --bg-primary-color: #F5F5F5;  /*background color*/
     --mob-padding: 20px;            /*відступи до контенту на смартфонах*/
     --ipad-padding: 50px;           /*відступи до контенту на ipad*/
-    --max-width: 1280px;            /*обмеження ширини секцій*/ 
+    --max-width: 1286px;            /*обмеження ширини секцій*/ 
     --grid-gutter: 20px;            /* Відстань між колонками */
     --grid-columns: 14;             /* Кількість колонок */
     --line-color: #EFDED9;          /* Колір ліній сітки */
     --line-thickness: 1px;
+    --brg-width: 30px;
+    --brg-height: 20px;
+    --brg-weight: 2px;
 
 }
 
@@ -70,6 +73,7 @@ html, body {
     color: var(--txt-color-02);
 }
 
+nav > .inside,
 header > .inside, 
 footer > .inside,
 section > .inside {

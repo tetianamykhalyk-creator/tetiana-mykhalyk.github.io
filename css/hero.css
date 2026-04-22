@@ -19,7 +19,7 @@
 }
 
 .hero .title {
-  width: calc(50% + 97px);
+  width: calc(58% - 2px);
 }
 
 #s1 h1 {
@@ -36,7 +36,7 @@
 
 .hero .brand {
   margin-left: 0;
-  padding-left: 16px;
+  padding-left: 14px;
   display: flex;
   align-items: flex-end;
   padding-bottom: 12px;

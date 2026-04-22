@@ -1,0 +1,142 @@
+
+/* --- СЕКЦІЯ S3 (POSTERS DESIGN) --- */
+
+#s3 {
+    position: relative;
+    width: 100%;
+    padding: 100px 0;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+#s3 .inside {
+    position: relative;
+    width: 100%;
+    max-width: 1286px; 
+    margin: 0 auto;
+}
+
+/* ЗАГОЛОВОК */
+.section-title-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 50px;
+}
+
+.huge-title {
+    width: 60%; 
+    font-size: 126px; 
+    font-weight: 400;
+    line-height: 0.9;
+    text-transform: uppercase;
+    color: var(--txt-color-01);
+}
+
+.huge-title span {
+    display: block;
+}
+
+.huge-title .line-2 {
+    text-align: right;
+}
+
+/* КОНТЕЙНЕР СЛАЙДЕРА */
+.slider-container {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+}
+
+.slides-wrapper {
+    width: 100%;
+    position: relative;
+    min-height: 809px; /* Утримує висоту для абсолютних слайдів */
+}
+
+/* СЛАЙДИ (Логіка перемикання) */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Важливо: використовуємо тільки один метод приховування для старту */
+    display: none; 
+    opacity: 0;
+    align-items: flex-start;
+    transition: opacity 0.6s ease-in-out;
+    z-index: 1;
+}
+
+.slide.active {
+    display: flex; /* Має збігатися з тим, що робить JS */
+    opacity: 1;
+    z-index: 2;
+}
+
+/* ЗОБРАЖЕННЯ */
+.slide-image {
+    height: 809px;
+    width: auto;
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+}
+
+.slide-image img {
+    height: 100%; 
+    width: auto; 
+    object-fit: contain;
+}
+
+/* ТЕКСТ */
+.slide-content {
+    margin-left: 5vw;
+    max-width: 457px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    padding-top: 180px;
+}
+
+.slide-content p {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--txt-color-01);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+/* НАВІГАЦІЯ */
+.slider-navigation {
+    position: absolute;
+    bottom: 50px;
+    right: 0; 
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    z-index: 100;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    transition: opacity 0.3s;
+}
+
+.nav-btn:hover {
+    opacity: 0.6;
+}
+
+.slider-counter {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 26px;
+    color: var(--txt-color-01);
+}
