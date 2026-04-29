@@ -196,7 +196,6 @@ nav.topfixed::before {
 }
 
 .topfixed .logo {
-    transform: scale(.8);
     opacity: 1;
     display: flex;
 }
@@ -235,7 +234,7 @@ nav .navbar {
     font-size: 1rem;
     font-weight: 400;           /* Накреслення тексту меню */
     letter-spacing: .025em;
-    padding: 8px 0 18px;
+    padding: 13px 0 13px;
     margin-left: 32px;
     text-decoration: none;
     position: relative;
@@ -247,11 +246,11 @@ nav .navbar {
 }
 
 .topfixed .navigation a {
-    color: var(--bg-primary-color); /* Колір меню після прокрутки */
+    color: var(--txt-color-01); /* Колір меню після прокрутки */
 }
 
 .topfixed .navigation a:hover {
-    color: var(--bg-primary-color); /* Колір меню (hover) після прокрутки */
+    color: var(--txt-color-01); /* Колір меню (hover) після прокрутки */
 }
 
 .navigation ul {
@@ -336,6 +335,7 @@ a:hover, a:focus, a:active {
     text-decoration: none;
     transition: color 0.3s ease;
     /* margin-left та padding залишаються твоїми оригінальними */
+    padding-right: 15px;
 }
 
 /* 2. Обгортка тексту всередині посилання (для лінії) */

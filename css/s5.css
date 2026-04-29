@@ -1,0 +1,141 @@
+/* --- СЕКЦІЯ S5 (ABOUT PROJECT) --- */
+#s5 {
+    position: relative;
+    width: 100%;
+    /* Додаємо вертикальні відступи, щоб контент мав простір */
+    padding: 120px 0; 
+    background-color: transparent;
+    /* ОБОВ'ЯЗКОВО: ховаємо те, що виходить за межі вікна браузера */
+    overflow: hidden; 
+}
+
+#s5 .inside {
+    position: relative; /* Робимо всередині якір для абсолютного позиціонування GIF */
+    width: 100%;
+    max-width: 1286px;
+    margin: 0 auto;
+    /* overflow: visible дозволяє GIF ігнорувати внутрішні паддінги та марджини */
+    overflow: visible; 
+    display: flex;
+}
+
+.about-content {
+    display: flex;
+    width: 100%;
+    position: relative;
+}
+
+/* 1. ТЕКСТОВА ЧАСТИНА (ЗЛІВА) */
+.about-text {
+    /* Текст займає ліву частину сітки */
+    flex: 0 0 55%; 
+    z-index: 2; /* Текст завжди поверх GIF */
+}
+
+.about-title {
+    font-size: clamp(60px, 8vw, 126px);
+    line-height: 0.85;
+    text-transform: uppercase;
+    color: #ff3d00; /* Твій акцентний помаранчевий */
+    margin-bottom: 50vh;
+    font-weight: 400;
+}
+
+.title-first {
+    display: block;
+    /* Перше слово залишається притиснутим до лівого краю */
+}
+
+.title-second {
+    display: block;
+    /* Ось головне зміщення: підберіть значення, щоб воно стало по центру або як на макеті */
+    margin-left: 10vw; 
+}
+
+.about-title span {
+    display: block;
+    width: 100%;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+
+}
+
+.about-description {
+    max-width: 480px;
+}
+
+.about-description p {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 26px;
+    line-height: 1.4;
+    text-transform: uppercase;
+    color: var(--txt-color-01);
+    margin-bottom: 25px;
+}
+
+/* 2. GIF (АБСОЛЮТНА ПОЗИЦІЯ ПРАВОРУЧ) */
+.about-visual {
+    position: absolute; 
+
+    /* 2. ЗМІЩУЄМО ВПРАВО: від'ємне значення витягує її за край екрана */
+    /* Чим більше мінус — тим більше GIF сховається */
+    right: -60vw; 
+    bottom: -40vw;
+    transform: translateY(-20%);
+
+    /* 3. ЗБІЛЬШУЄМО РОЗМІР: */
+    /* Використовуємо vw, щоб розмір залежав від екрана. 
+       Наприклад, 60vw — це 60% ширини всього монітора. */
+    width: 130vw; 
+    
+    
+    z-index: 1;
+    pointer-events: none;
+}
+
+.out-of-bounds-gif {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ============================================================
+   АДАПТИВНІСТЬ (Мобільна версія як на твоїх скріншотах)
+   ============================================================ */
+@media screen and (max-width: 991px) {
+    #s5 {
+        padding: 60px 0;
+    }
+
+    #s5 .inside {
+        flex-direction: column;
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+
+    /* На мобільних повертаємо GIF у звичайний потік */
+    .about-visual {
+        position: relative;
+        top: 0;
+        right: auto;
+        transform: none;
+        
+        /* Робимо GIF дуже великою на весь екран */
+        width: 140%; 
+        margin-left: -20%; /* Центруємо її з виходом за краї */
+        margin-bottom: 40px;
+        order: 1; /* Гіфка зверху, як на макеті */
+    }
+
+    .about-text {
+        width: 100%;
+        order: 2; /* Текст знизу */
+        padding: 0 20px;
+    }
+
+    .about-title {
+        font-size: 56px;
+    }
+}
