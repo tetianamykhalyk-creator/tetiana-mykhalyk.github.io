@@ -15,6 +15,7 @@
     margin: 0 auto;
     overflow: visible; 
     min-height: 700px; /* Достатньо висоти для вінілу та тексту */
+    min-height: 100vh;
 }
 
 /* 1. ВЕЛИКИЙ ТЕКСТ (ПІДНЯТИЙ ВГОРУ) */
@@ -37,6 +38,7 @@
     color: #ff3d00; 
     font-weight: 400;
     margin: 0;
+    margin-right: calc(var(--ipad-padding) - 4px);
 }
 
 .covers-huge-title span {
