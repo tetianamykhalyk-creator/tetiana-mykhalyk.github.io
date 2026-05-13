@@ -54,12 +54,6 @@
     transform: scale(1);
 }
 
-/* Коли ми наводимо на .card, зображення всередині збільшується */
-.card:hover .card-image img {
-    /* Збільшуємо масштаб зображення на 1.1 (це +10%) */
-    /* Можеш підібрати своє значення, наприклад 1.05 або 1.15 */
-    transform: scale(1.15); 
-}
 
 /* Інфо під карткою */
 .card-info {
@@ -195,4 +189,71 @@
 .info-trigger:hover .info-details {
     max-height: 150px; /* Достатня висота, щоб вмістити всі пункти */
     opacity: 1;        /* Робимо видимим */
+}
+
+/* --- СТИЛІ ДЛЯ ЗМІНИ КАРТИНКИ ПРИ НАВЕДЕННІ --- */
+
+/* 1. Початковий стан обох картинок */
+.card-image img {
+    position: absolute; /* Накладаємо картинки одну на одну */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Центруємо absolute елемент */
+    max-width: 100%;
+    height: auto;
+    
+    /* Додаємо плавність для обох ефектів (opacity та transform) */
+    transition: opacity 0.5s ease;
+    
+    /* Обв'язково для абсолютно запозиційованих img, щоб flex не заважав */
+    flex-shrink: 0; 
+}
+
+/* Налаштування для .card-image, щоб absolute працював коректно */
+.card-image {
+    position: relative; /* Робимо якір для absolute картинок */
+    width: 286px;
+    height: 199px;
+    border: 1px solid var(--txt-color-02);
+    display: flex; /* flex залишаємо для фонового центрування */
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Ховаємо те, що виходить за межі рамки */
+    background-color: transparent;
+}
+
+
+/* 2. Початковий стан кожної картинки окремо */
+
+/* Основна картинка: видима і нормального масштабу */
+.card-image .primary-img {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    z-index: 2; /* Вище за z-index кольорової */
+}
+
+/* Друга картинка (при наведенні): прихована, прозора і трохи збільшена */
+.card-image .secondary-img {
+    opacity: 0;
+    /* translate для центрування, scale для анімації наближення */
+    transform: translate(-50%, -50%); 
+    z-index: 1; /* Нижче за z-index основної */
+}
+
+
+/* 3. Логіка при наведенні НА КАРТКУ (.card) */
+
+/* Коли наводимо на .card, основна картинка стає прозорою */
+.card:hover .card-image .primary-img {
+    opacity: 0;
+    /* Також можна додати scale(0.9) щоб вона трохи "віддалялася" */
+    transform: translate(-50%, -50%);
+}
+
+/* Коли наводимо на .card, друга картинка стає видимою і повертається до нормального масштабу */
+.card:hover .card-image .secondary-img {
+    opacity: 1;
+    /* scale(1) - це кінцевий розмір картинки при ховері */
+    transform: translate(-50%, -50%); 
+    z-index: 3; /* Піднімаємо її поверх основної */
 }
